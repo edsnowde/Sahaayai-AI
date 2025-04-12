@@ -7,8 +7,8 @@ def send_sms():
 
     message = client.messages.create(
         body="🚨 This is an emergency message sent using Twilio!",
-        from_="+your number",        # Your Twilio phone number
-        to="+your number"            # Your verified phone number
+        from_="",        # Your Twilio phone number
+        to=""            # Your verified phone number
     )
 
     print(f"Message sent! SID: {message.sid}")

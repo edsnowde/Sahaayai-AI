@@ -66,7 +66,7 @@ Senior citizens are increasingly disconnected from today's digital world due to 
 ### ✅ Frontend Setup
 
 ```bash
-git clone https://github.com/your-username/sahaayai.git
+git clone https://github.com/edsnowde/Sahaayai-AI
 cd sahaayai/client
 npm install
 npm install vite --save-dev
