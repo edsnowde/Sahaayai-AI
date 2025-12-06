@@ -14,6 +14,7 @@ Senior citizens are increasingly disconnected from today's digital world due to 
 
 **SahaayAI** offers a voice-based, multilingual AI companion that mimics the voice of a loved one to help with daily wellness, provide reminders, and offer meaningful interaction — all through simple, intuitive speech commands.
 
+Demo Video link : https://drive.google.com/file/d/17gTVU_iB2GSxn5gov6xkHMN6r5DpxBr2/view?usp=sharing
 ---
 
 ## 🛠️ Tech Stack
