@@ -26,24 +26,21 @@ export const textToSpeech = async (text: string, voiceId: string): Promise<Array
     
     const url = `https://api.elevenlabs.io/v1/text-to-speech/${actualVoiceId}`;
     
-    // First try server-side proxy to avoid CORS and keep the API key secret.
-        const payload = {
-          text,
-          model_id: DEFAULT_MODEL_ID,
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.5
-          }
-        };
-
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'xi-api-key': apiKey
-          },
-          body: JSON.stringify(payload)
-        });
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'xi-api-key': apiKey
+      },
+      body: JSON.stringify({
+        text,
+        model_id: DEFAULT_MODEL_ID,
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.5
+        }
+      })
+    });
     
     if (!response.ok) {
       throw new Error(`ElevenLabs API error: ${response.statusText}`);

@@ -18,12 +18,16 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
   retro = false 
 }) => {
   if (retro) {
+
+    //
+
+    
     return (
-      <div className="bg-white border-2 border-black p-4 rounded-md w-full max-w-lg h-64 overflow-y-auto mb-4">
+      <div className="bg-white border-2 border-black p-4 rounded-md w-full max-w-3xl h-80 overflow-y-auto mb-4">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`p-3 rounded-md mb-3 border-2 max-w-[85%] text-lg font-bold leading-6
+            className={`p-3 rounded-md mb-3 border-2 max-w-[95%] text-xl font-bold leading-7
               ${msg.type === 'user'
                 ? 'ml-auto bg-yellow-200 border-yellow-700 text-black'
                 : 'mr-auto bg-cyan-100 border-cyan-800 text-black'}`}
@@ -39,16 +43,16 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
   }
   
   return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 w-full max-w-lg h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 border border-gray-200">
+    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 w-full max-w-3xl h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 border border-gray-200">
       {messages.map((msg, i) => (
         <div
           key={i}
-          className={`mb-3 max-w-[80%] ${
+          className={`mb-3 max-w-[92%] ${
             msg.type === 'user' ? 'ml-auto text-right' : 'mr-auto'
           }`}
         >
           <div
-            className={`inline-block rounded-lg px-4 py-2 ${
+            className={`inline-block rounded-lg px-4 py-2 text-xl ${
               msg.type === 'user'
                 ? 'bg-sahaay-blue text-white'
                 : 'bg-gray-100 text-gray-800'
@@ -71,3 +75,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
 };
 
 export default ChatHistory;
+
+
+
+

@@ -12,8 +12,7 @@ interface UseTextToSpeechReturn {
   speak: (
     text: string,
     voiceId: string,
-    useElevenLabs: boolean,
-    elevenLabsApiKey?: string | null
+    useElevenLabs: boolean
   ) => Promise<void>;
   toggleMute: () => boolean;
 }
@@ -28,8 +27,7 @@ const useTextToSpeech = ({
   const speak = async (
     text: string,
     voiceId: string,
-    useElevenLabs: boolean,
-    elevenLabsApiKey?: string | null
+    useElevenLabs: boolean
   ) => {
     if (isMuted) return;
 
@@ -38,16 +36,17 @@ const useTextToSpeech = ({
 
     try {
       if (useElevenLabs) {
-        if (!elevenLabsApiKey) {
-          console.warn("ElevenLabs API key is missing. Falling back to browser TTS.");
+        const apiKey = localStorage.getItem('elevenLabsApiKey');
+        if (!apiKey) {
+          console.warn('ElevenLabs API key is missing. Falling back to browser TTS.');
           useBrowserTTS(text);
         } else {
-          const audioData = await textToSpeech(text, voiceId, elevenLabsApiKey);
+          const audioData = await textToSpeech(text, voiceId);
 
           if (audioData) {
             await playAudio(audioData);
           } else {
-            console.warn("No audio data from ElevenLabs, falling back to browser TTS.");
+            console.warn('No audio data from ElevenLabs, falling back to browser TTS.');
             useBrowserTTS(text);
           }
         }

@@ -87,6 +87,7 @@ npm run dev       # Start frontend at http://localhost:5173
 ### ✅ 3. Backend Setup (Flask + Gemini + ElevenLabs)
 
 cd ../server
+
 python -m venv venv
 
 # Activate virtual environment:
@@ -99,6 +100,69 @@ If `requirements.txt` is missing:
 
 pip install flask flask-cors google-generativeai python-dotenv scikit-learn pandas numpy reportlab
 
+
+
+Steps and exact PowerShell commands — copy/paste these in order into your PowerShell window at the project root (C:\Users\syedf\Desktop\GitHub\Sahaayai-AI). I'll include fallbacks if `py` or `python` behaves differently on your system.
+
+1) (Optional) If a venv is currently active, deactivate it
+```powershell
+deactivate
+```
+
+2) Remove the broken virtualenv directory (delete .venv)
+```powershell
+Remove-Item -Recurse -Force .\.venv
+```
+
+3) Create a fresh virtualenv using the Python 3 launcher (preferred)
+```powershell
+py -3 -m venv .venv
+```
+If `py` is not available, use:
+```powershell
+python -m venv .venv
+```
+
+4) Allow running local activation scripts (single session)
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+```
+
+5) Activate the new virtualenv (PowerShell)
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+(If that fails, try the batch activation in cmd: activate.bat from cmd.exe.)
+
+6) Upgrade pip, setuptools, wheel
+```powershell
+python -m pip install --upgrade pip setuptools wheel
+```
+
+7A) If you have `requirements.txt` in the repo root (recommended), install from it:
+```powershell
+pip install -r requirements.txt
+```
+
+7B) If you do NOT have `requirements.txt`, install the packages you asked for:
+```powershell
+pip install flask flask-cors google-generativeai python-dotenv scikit-learn pandas numpy reportlab
+```
+
+8) Quick verification (imports + versions)
+```powershell
+python -c "import flask, pandas, numpy; print('OK', flask.__version__, pandas.__version__, numpy.__version__)"
+```
+
+If you see any errors during step 3 or 7, run these diagnostic commands and paste the output back to me:
+```powershell
+Get-Command python
+Get-Command py
+py -0p
+where.exe python
+python --version
+py -3 --version
+```
 
 ### 🔐 4. Configure Environment Variables
 

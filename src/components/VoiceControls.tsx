@@ -37,7 +37,7 @@ const VoiceControls: React.FC<VoiceControlsProps> = ({
   onDelayChange,
   onVoiceSelect,
   currentVoiceId,
-  retro = false
+  retro = true
 }) => {
   return (
     <div className="flex gap-4 items-center">

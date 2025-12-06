@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 
 interface WaveAnimationProps {
@@ -7,19 +6,22 @@ interface WaveAnimationProps {
 }
 
 const WaveAnimation = ({ isListening, className }: WaveAnimationProps) => {
-  if (!isListening) {
-    return null;
-  }
-  
+  if (!isListening) return null;
+
   return (
-    <div className={cn("flex items-end justify-center gap-1 h-12", className)}>
+    <div
+      className={cn(
+        "flex items-end justify-center gap-2 h-16 p-2 bg-yellow-100 border-4 border-black rounded-xl shadow-lg",
+        className
+      )}
+    >
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className={`w-2 bg-sahaay-purple rounded-full animate-wave-${i}`}
-          style={{ 
-            height: `${Math.random() * 30 + 10}px`, 
-            animationDelay: `${i * 0.1}s` 
+          className="w-4 rounded bg-black animate-retro-wave"
+          style={{
+            height: `${Math.random() * 20 + 20}px`,
+            animationDelay: `${i * 0.2}s`,
           }}
         />
       ))}

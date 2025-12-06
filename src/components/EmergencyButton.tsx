@@ -70,22 +70,34 @@ const EmergencyButton = () => {
 
   return (
     <button
-      className={`fixed bottom-6 right-6 px-4 py-2 rounded-full text-white flex items-center gap-2 z-10 transition-all shadow-lg
+      className={`fixed bottom-6 right-6 z-10 transition-all
         ${isActivated ? "bg-red-800 cursor-not-allowed" : "bg-red-600 hover:bg-red-700"}`}
       onClick={handleClick}
       disabled={isActivated}
+      style={{
+        border: '4px solid #000',
+        background: isActivated ? '#A80000' : '#FF4D4D',
+        color: '#fff',
+        padding: '1rem 1.25rem',
+        boxShadow: '4px 4px 0 rgba(0,0,0,1)',
+        borderRadius: 0,
+        fontFamily: `"Comic Sans MS", "Comic Sans", cursive, sans-serif`,
+        fontWeight: 700,
+      }}
     >
-      {isActivated ? (
-        <>
-          <Phone className="h-5 w-5 animate-pulse" />
-          <span>Calling... ({countdown})</span>
-        </>
-      ) : (
-        <>
-          <AlertCircle className="h-5 w-5" />
-          <span>Emergency</span>
-        </>
-      )}
+      <div className="flex items-center gap-3">
+        {isActivated ? (
+          <>
+            <Phone className="h-5 w-5 animate-pulse" />
+            <span>Calling... ({countdown})</span>
+          </>
+        ) : (
+          <>
+            <AlertCircle className="h-5 w-5" />
+            <span>Emergency</span>
+          </>
+        )}
+      </div>
     </button>
   );
 };

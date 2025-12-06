@@ -115,18 +115,17 @@ const Dashboard = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ background: 'var(--retro-yellow)' }}>
       <Header showLanguageSelector={true} />
       
       <main className="flex-1 container py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <VoiceAssistant welcomeMessage={getModeWelcome()} />
-          
-          <div className="mt-12">
-            <h2 className="text-2xl font-bold mb-6">
-              {activeMode ? "Switch Mode" : "Select a Mode"}
-            </h2>
-            
+          <div className="card p-6 mb-8">
+            <VoiceAssistant welcomeMessage={getModeWelcome()} />
+          </div>
+
+          <div className="mt-6">
+            <h2 className="text-3xl font-bold mb-6">{activeMode ? "Switch Mode" : "Select a Mode"}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature) => (
                 <FeatureCard

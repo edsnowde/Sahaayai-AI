@@ -9,8 +9,8 @@ const Index = () => {
       <Header showLanguageSelector={true} />
       
       <main className="flex-1 container py-8 px-4 md:py-12">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-sahaay-blue">
+        <div className="max-w-4xl mx-auto text-center mb-12 card p-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
             SahaayAI: Your Smart Voice Companion
           </h1>
           <p className="text-xl md:text-2xl text-sahaay-text-light mb-8">
